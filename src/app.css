@@ -1,12 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  flex-shrink: 0;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(231, 232, 233);
 }
 
 button {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 button:hover {
@@ -27,8 +37,8 @@ button:hover {
 }
 
 #search-bar-icon {
-  height: 5rem;
-  width: 5rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 #search-bar-icon:hover {
@@ -37,6 +47,85 @@ button:hover {
 }
 
 #search-bar {
+  height: 1.5rem;
+  width: 35rem;
+}
+
+#left-side {
+  height: 100vh;
+  width: 8vw;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+#side-icon-container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.left-side-icon {
+  height: 3vw;
+  width: 3vw;
+}
+
+.left-side-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.video-container {
+  width: 85vw;
+  height: 80%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.videos {
+  width: 20vw;
+  height: 100%;
+  margin: 0.1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mockImg {
+  width: 100%;
+}
+
+.video-outer-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-box {
+  display: flex;
+  width: 100%;
+  height: 40%;
+}
+
+.video-describtion {
+  display: flex;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 1vw;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.channel-thumbnail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1vw;
+}
+
+.channel-thumbnail {
   height: 2rem;
-  width: 25rem;
+  width: 2rem;
+  background-color: teal;
+  border-radius: 50%;
 }

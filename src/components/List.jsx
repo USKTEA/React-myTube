@@ -1,16 +1,15 @@
 import React from "react";
+import Video from "./Video";
 
 function List(props) {
   return (
-    <div id="video-board">
+    <article className="video-container">
       {props.videoList.map((item) => {
         return (
-          <div className="video-container">
-            <span>{item}</span>
-          </div>
+          <Video className="videos" info={item}/>
         );
       })}
-    </div>
+    </article>
   );
 }
 

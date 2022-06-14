@@ -1,5 +1,6 @@
 import React from "react";
 import searchBarIcon from "../img_assets/searchBarIcon.png";
+import Button from "./Button";
 
 function Header(props) {
   return (
