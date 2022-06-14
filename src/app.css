@@ -1,0 +1,42 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.nav-bar {
+  background-color: #ffbf28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#input-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-bar-icon {
+  height: 5rem;
+  width: 5rem;
+}
+
+#search-bar-icon:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+#search-bar {
+  height: 2rem;
+  width: 25rem;
+}
