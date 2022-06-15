@@ -5,7 +5,14 @@ function Side(props) {
     <aside id={props.cssTag}>
       <div id="side-icon-container">
         {props.icons.map((img) => {
-          return <img className="left-side-icon" src={img} alt="icons"></img>;
+          return (
+            <img
+              className="left-side-icon"
+              key={img}
+              src={img}
+              alt="icons"
+            ></img>
+          );
         })}
       </div>
     </aside>

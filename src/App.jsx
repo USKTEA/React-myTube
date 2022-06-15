@@ -22,15 +22,36 @@ import config from "./config.js";
 function App() {
   const [inputs, setInputs] = useState("");
   const [data, setData] = useState([]);
-  const mockData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const icons = [sword, magicStric, theif, bow, pirate];
+
+  const handleResize = () => {
+    setWindowWidth(() => window.innerWidth);
+  };
+
+  const debouncedHandleResize = (func, delay) => {
+    let timer = null;
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      timer = setTimeout(() => func(), delay);
+    };
+  };
 
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=메이플&key=${config.MY_KEY2}`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=메이플&key=${config.MY_KEY3}`
     )
       .then((response) => response.json())
       .then((data) => setData(data.items));
+
+    window.addEventListener(
+      "resize",
+      debouncedHandleResize(handleResize, 500)
+    );
   }, []);
 
   const handleSubmit = (event) => {
@@ -50,7 +71,7 @@ function App() {
         </InputForm>
       </Header>
       <Side cssTag="left-side" icons={icons}></Side>
-      <List videoList={data}></List>
+      <List videoList={data} windowWidth={windowWidth}></List>
     </>
   );
 }

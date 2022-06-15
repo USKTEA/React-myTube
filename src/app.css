@@ -116,7 +116,7 @@ button:hover {
   display: flex;
   margin-top: 0.5rem;
   width: 100%;
-  font-size: 1vw;
+  font-size: 0.5vmin;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -128,8 +128,8 @@ button:hover {
 }
 
 .channel-thumbnail {
-  height: 2rem;
-  width: 2rem;
+  height: 3.6vh;
+  width: 2.5vw;
   background-color: teal;
   border-radius: 50%;
 }
