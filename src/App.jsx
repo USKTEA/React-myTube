@@ -21,7 +21,8 @@ import config from "./config.js";
 
 function App() {
   const [inputs, setInputs] = useState("");
-  const [data, setData] = useState([]);
+  const [videoList, setVideoList] = useState([]);
+  const [videoID, setVideoID] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const icons = [sword, magicStric, theif, bow, pirate];
 
@@ -46,12 +47,9 @@ function App() {
       `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=메이플&key=${config.MY_KEY3}`
     )
       .then((response) => response.json())
-      .then((data) => setData(data.items));
+      .then((data) => setVideoList(data.items));
 
-    window.addEventListener(
-      "resize",
-      debouncedHandleResize(handleResize, 500)
-    );
+    window.addEventListener("resize", debouncedHandleResize(handleResize, 500));
   }, []);
 
   const handleSubmit = (event) => {
@@ -62,16 +60,46 @@ function App() {
     setInputs((prev) => event.target.value);
   };
 
+  const handleClick = (event) => {
+    setVideoID(() => event.target.dataset.videoid);
+  };
+
   return (
     <>
       <Header>
         <InputForm handleSubmit={handleSubmit}>
           <InputBar handleChange={handleChange}></InputBar>
-          <Button name="🔍"></Button>
+          <Button>🔍</Button>
         </InputForm>
       </Header>
-      <Side cssTag="left-side" icons={icons}></Side>
-      <List videoList={data} windowWidth={windowWidth}></List>
+      {videoID ? (
+        <>
+          <div className="video-page">
+            <iframe
+              className="video"
+              title="video"
+              src={`https://www.youtube.com/embed/${videoID}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <Side cssTag="right-side"></Side>
+          </div>
+          <div className="www">
+            <div>hihi</div>
+            <div>hihi</div>
+          </div>
+        </>
+      ) : (
+        <>
+          <Side cssTag="left-side" icons={icons}></Side>
+          <List
+            handleClick={handleClick}
+            videoList={videoList}
+            windowWidth={windowWidth}
+          ></List>
+        </>
+      )}
     </>
   );
 }
