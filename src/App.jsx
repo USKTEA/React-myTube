@@ -17,21 +17,21 @@ import theif from "./img_assets/sideBarIcon-theif.png";
 
 import "./app.css";
 
+import config from "./config.js";
+
 function App() {
   const [inputs, setInputs] = useState("");
   const [data, setData] = useState([]);
   const mockData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   const icons = [sword, magicStric, theif, bow, pirate];
 
-  /*
   useEffect(() => {
-    console.log(config);
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=메이플스토리&key=${config.MY_KEY}`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=메이플&key=${config.MY_KEY2}`
     )
       .then((response) => response.json())
       .then((data) => setData(data.items));
-  }, []);*/
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +50,7 @@ function App() {
         </InputForm>
       </Header>
       <Side cssTag="left-side" icons={icons}></Side>
-      <List videoList={mockData}></List>
+      <List videoList={data}></List>
     </>
   );
 }

@@ -93,8 +93,12 @@ button:hover {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.mockImg {
+.thumbnail {
   width: 100%;
+}
+
+.thumbnail:hover {
+  cursor: pointer;
 }
 
 .video-outer-box {
@@ -128,4 +132,8 @@ button:hover {
   width: 2rem;
   background-color: teal;
   border-radius: 50%;
+}
+
+.video-title {
+  font-weight: bold;
 }
