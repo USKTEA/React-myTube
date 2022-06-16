@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import List from "./List";
 
 function Side(props) {
   return (
@@ -22,7 +23,12 @@ function Side(props) {
           </div>
         </>
       ) : (
-        <h1>hi</h1>
+        <List
+          className="stream-videosList"
+          videoList={props.videoList}
+          windowWidth={props.windowWidth}
+          videoid={props.videoid}
+        ></List>
       )}
     </aside>
   );

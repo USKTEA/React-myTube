@@ -18,11 +18,12 @@ import theif from "./img_assets/sideBarIcon-theif.png";
 import "./app.css";
 
 import config from "./config.js";
+import Stream from "./components/Stream";
 
 function App() {
   const [inputs, setInputs] = useState("");
   const [videoList, setVideoList] = useState([]);
-  const [videoID, setVideoID] = useState("");
+  const [videoInfo, setVideoInfo] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const icons = [sword, magicStric, theif, bow, pirate];
 
@@ -44,7 +45,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=메이플&key=${config.MY_KEY3}`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=메이플&key=${config.MY_KEY2}`
     )
       .then((response) => response.json())
       .then((data) => setVideoList(data.items));
@@ -61,7 +62,11 @@ function App() {
   };
 
   const handleClick = (event) => {
-    setVideoID(() => event.target.dataset.videoid);
+    setVideoInfo(() => event.target.dataset);
+  };
+
+  const handleGoPreviousPage = () => {
+    setVideoInfo(() => "");
   };
 
   return (
@@ -72,24 +77,13 @@ function App() {
           <Button>🔍</Button>
         </InputForm>
       </Header>
-      {videoID ? (
-        <>
-          <div className="video-page">
-            <iframe
-              className="video"
-              title="video"
-              src={`https://www.youtube.com/embed/${videoID}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <Side cssTag="right-side"></Side>
-          </div>
-          <div className="www">
-            <div>hihi</div>
-            <div>hihi</div>
-          </div>
-        </>
+      {videoInfo ? (
+        <Stream
+          videoInfo={videoInfo}
+          handleClick={handleGoPreviousPage}
+          videoList={videoList}
+          windowWidth={windowWidth}
+        />
       ) : (
         <>
           <Side cssTag="left-side" icons={icons}></Side>
@@ -97,6 +91,7 @@ function App() {
             handleClick={handleClick}
             videoList={videoList}
             windowWidth={windowWidth}
+            className="video-container"
           ></List>
         </>
       )}
