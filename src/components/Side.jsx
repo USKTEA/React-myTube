@@ -10,13 +10,8 @@ function Side(props) {
           <div id="side-icon-container">
             {props.icons.map((img) => {
               return (
-                <Button>
-                  <img
-                    className="left-side-icon"
-                    key={img}
-                    src={img}
-                    alt="icons"
-                  ></img>
+                <Button key={img}>
+                  <img className="left-side-icon" src={img} alt="icons"></img>
                 </Button>
               );
             })}

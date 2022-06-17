@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import config from "../config.js";
 import Button from "./Button.jsx";
+import config from "../config.js";
 
 function Video(props) {
   const [channelInfo, setChannelInfo] = useState("");
@@ -25,7 +25,7 @@ function Video(props) {
     };
 
     fetchData();
-  }, []);
+  }, [channel]);
 
   useEffect(() => {
     const fetchData = async () => {

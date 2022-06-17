@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import Side from "./Side";
-import config from "../config";
 import Comments from "./Comments";
+
+import config from "../config";
 
 function Stream(props) {
   const [comments, setComments] = useState("");
@@ -44,7 +45,6 @@ function Stream(props) {
       );
       const data = await resposne.json();
 
-      console.log("useuse");
       setComments(() => data.items);
     };
 

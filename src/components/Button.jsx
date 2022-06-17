@@ -8,5 +8,4 @@ function Button(props) {
   );
 }
 
-//type button으로 하면 submit 되지 않음 onclick은 focus되는 태그만
 export default Button;

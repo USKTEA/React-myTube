@@ -1,11 +1,12 @@
 import React from "react";
 
 function Comments(props) {
+  console.log(props);
   return (
     <div className="comments">
       {props.videoComments.map((item) => {
         return (
-          <div className="comments-wrapper">
+          <div key={item.etag} className="comments-wrapper">
             <img
               className="comments-author-profile"
               src={item.snippet.topLevelComment.snippet.authorProfileImageUrl}

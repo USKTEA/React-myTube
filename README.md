@@ -53,3 +53,5 @@ useEffect의 dependency에 videoid을 넣어 videoid가 변경될 때 videoid에
 처음에는 잘 받아왔으나 인터넷속도 문제인지 SHA[06e8c8c]와 같은 버그가 생김.
 
 조건문을 이용해서 useEffect가 넣어주는 state를 조건으로 해당 컴포넌트를 랜더링하게 로직을 구현해서 해결.
+
+(useEffect는 컴포넌트 렌더링 이후에 수행되니 undefined의 prop을 컴포넌트에 넣어서 그런거 같음)
