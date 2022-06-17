@@ -24,6 +24,7 @@ function Side(props) {
         </>
       ) : (
         <List
+          hanldePlayListClick={props.handlePlayListClick}
           className="stream-videosList"
           videoList={props.videoList}
           windowWidth={props.windowWidth}

@@ -58,7 +58,7 @@ function App() {
   };
 
   const handleChange = (event) => {
-    setInputs((prev) => event.target.value);
+    setInputs(() => event.target.value);
   };
 
   const handleClick = (event) => {
@@ -81,6 +81,7 @@ function App() {
         <Stream
           videoInfo={videoInfo}
           handleClick={handleGoPreviousPage}
+          handlePlayListClick={handleClick}
           videoList={videoList}
           windowWidth={windowWidth}
         />

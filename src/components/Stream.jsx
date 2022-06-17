@@ -1,7 +1,11 @@
+import { useEffect, useState } from "react";
 import Button from "./Button";
 import Side from "./Side";
+import config from "../config";
+import Comments from "./Comments";
 
 function Stream(props) {
+  const [comments, setComments] = useState("");
   const {
     videoid,
     videotitle,
@@ -32,6 +36,20 @@ function Stream(props) {
       return letter;
     })
     .reduce((total, curr) => total + curr, "");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const resposne = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${config.MY_KEY2}`
+      );
+      const data = await resposne.json();
+
+      console.log("useuse");
+      setComments(() => data.items);
+    };
+
+    fetchData();
+  }, [videoid]);
 
   return (
     <>
@@ -66,8 +84,10 @@ function Stream(props) {
               <Button handleClick={props.handleClick}>🔙</Button>
             </div>
           </div>
+          {comments ? <Comments videoComments={comments}></Comments> : null}
         </div>
         <Side
+          handlePlayListClick={props.handlePlayListClick}
           cssTag="right-side"
           videoid={videoid}
           videoList={props.videoList}

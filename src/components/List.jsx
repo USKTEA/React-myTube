@@ -37,7 +37,7 @@ function List(props) {
       {filteredVideoList.map((item) => {
         return (
           <Video
-            handleClick={props.handleClick}
+            handleClick={props.hanldePlayListClick}
             className="stream-videoList-video"
             key={item.id.videoId}
             windowWidth={props.windowWidth}

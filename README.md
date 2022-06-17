@@ -26,7 +26,7 @@ App컴포넌트에 windowWidth state를 추가함.
 
 debounce함수를 이용해 마지막 이벤트리스너가 호출되고 500밀리세컨드 이후에 setWindowWidth 함수를 호출해서 windowWidth state를 변경하는 것으로 API 호출 횟수를 줄임.
 
-<strong>👉22/06/15 SHA[24fef19]</strong>
+<strong>👉22/06/16 SHA[24fef19]</strong>
 
 첫 페이지에서 원하는 동영상을 클릭 시 해당 영상이 렌더링되는 스트림페이지 구현.
 
