@@ -55,3 +55,13 @@ useEffect의 dependency에 videoid을 넣어 videoid가 변경될 때 videoid에
 조건문을 이용해서 useEffect가 넣어주는 state를 조건으로 해당 컴포넌트를 랜더링하게 로직을 구현해서 해결.
 
 (useEffect는 컴포넌트 렌더링 이후에 수행되니 undefined의 prop을 컴포넌트에 넣어서 그런거 같음)
+
+<strong>👉22/06/17 SHA[c98ea70]</strong>
+
+전반적인 기능 구현 완료.
+
+동영상 검색, 클릭된 동영상 기반으로 스트림페이지 랜더링, 댓글 및 플레이리스트 랜더링.
+
+관련되지 않는 components가 랜더링이 되는 것이 보임.
+
+어떻게 해결 가능할까 고민 중.
