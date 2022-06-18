@@ -8,6 +8,7 @@ import Button from "./components/Button";
 import Side from "./components/Side";
 import List from "./components/List";
 import Stream from "./components/Stream";
+import Modal from "./components/Modal";
 
 //imgs
 import bow from "./img_assets/sideBarIcon-bow.png";
@@ -21,12 +22,15 @@ import "./app.css";
 import config from "./config.js";
 
 function App() {
+  const prefix = "메이플";
   const [inputs, setInputs] = useState("");
   const [videoList, setVideoList] = useState([]);
   const [videoInfo, setVideoInfo] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [search, setSearch] = useState("메이플");
+  const [search, setSearch] = useState(prefix);
+  const [clickedIcon, setClickedIcon] = useState(false);
   const icons = [sword, magicStric, theif, bow, pirate];
+  const iconsText = ["sword", "magicStick", "theif", "bow", "pirate"];
 
   const handleResize = () => {
     setWindowWidth(() => window.innerWidth);
@@ -58,7 +62,7 @@ function App() {
     event.preventDefault();
 
     setVideoInfo(() => "");
-    setSearch(() => inputs);
+    setSearch(() => prefix + inputs);
     setInputs(() => "");
   };
 
@@ -67,7 +71,7 @@ function App() {
   };
 
   const debouncedHandleChange = useCallback(
-    debouncedFunction(handleChange, 100),
+    debouncedFunction(handleChange, 200),
     []
   );
 
@@ -79,8 +83,28 @@ function App() {
     setVideoInfo(() => "");
   };
 
+  const handleSideIconClick = useCallback(
+    (icon) => () => {
+      setClickedIcon(() => icon);
+    },
+    []
+  );
+
   return (
     <>
+      {clickedIcon ? (
+        <Modal
+          handleClick={handleSideIconClick(false)}
+          clickedIcon={clickedIcon}
+        >
+          <Button
+            className="modal-button"
+            handleClick={handleSideIconClick(false)}
+          >
+            Close
+          </Button>
+        </Modal>
+      ) : null}
       <Header>
         <InputForm handleSubmit={handleSubmit}>
           <InputBar handleChange={debouncedHandleChange}></InputBar>
@@ -97,7 +121,12 @@ function App() {
         />
       ) : (
         <>
-          <Side cssTag="left-side" icons={icons}></Side>
+          <Side
+            cssTag="left-side"
+            icons={icons}
+            iconsText={iconsText}
+            handleSideIconClick={handleSideIconClick}
+          ></Side>
           <List
             handleClick={handleClick}
             videoList={videoList}

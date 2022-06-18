@@ -1,7 +1,6 @@
 import React from "react";
 
 function Comments(props) {
-  console.log(props);
   return (
     <div className="comments">
       {props.videoComments.map((item) => {

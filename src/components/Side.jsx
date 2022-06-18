@@ -3,15 +3,25 @@ import Button from "./Button";
 import List from "./List";
 
 function Side(props) {
+  const iconsText = props.iconsText;
+
   return (
     <aside id={props.cssTag}>
       {props.cssTag === "left-side" ? (
         <>
           <div id="side-icon-container">
-            {props.icons.map((img) => {
+            {props.icons.map((img, index) => {
               return (
-                <Button key={img}>
-                  <img className="left-side-icon" src={img} alt="icons"></img>
+                <Button
+                  className="side-icon"
+                  key={img}
+                  handleSideIconClick={props.handleSideIconClick}
+                >
+                  <img
+                    className="left-side-icon"
+                    src={img}
+                    alt={iconsText[index]}
+                  ></img>
                 </Button>
               );
             })}

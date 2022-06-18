@@ -17,7 +17,7 @@ function List(props) {
           <Video
             handleClick={props.handleClick}
             className="videos"
-            key={item.id.videoId}
+            key={item.etag}
             windowWidth={props.windowWidth}
             info={item}
           />
