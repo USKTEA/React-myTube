@@ -65,3 +65,13 @@ useEffect의 dependency에 videoid을 넣어 videoid가 변경될 때 videoid에
 관련되지 않는 components가 랜더링이 되는 것이 보임.
 
 어떻게 해결 가능할까 고민 중.
+
+<strong>👉22/06/17 SHA[0facfba]</strong>
+
+첫 페이지 left-side 아이콘에 해당 아이콘을 클릭 시 아이콘이 의미하는 직업영상을 모달창으로 뜨는 기능 구현.
+
+useEffect을 이용해 컴포넌트 랜더링 후 body.style.overflow : hidden을 추가해서 스크롤을 막도록 했고,
+
+modal-wrapper에 모달창을 닫는 click 이벤트를 추가하여 버튼 혹 모달창 영상 이외 부분을 클릭 시
+
+모달창이 닫히도록 기능을 구현하였음.
