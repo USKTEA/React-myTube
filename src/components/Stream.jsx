@@ -64,7 +64,7 @@ function Stream(props) {
           <iframe
             className="video"
             title="video"
-            src={`https://www.youtube.com/embed/${videoid}`}
+            src={`https://www.youtube-nocookie.com/embed/${videoid}`}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

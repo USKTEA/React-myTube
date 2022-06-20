@@ -85,7 +85,7 @@ modal-wrapper에 모달창을 닫는 click 이벤트를 추가하여 버튼과 �
 3. sameSite 관련 쿠키이슈 해결 필요.
 4. 리렌더링 최적화
 
-<strong>👉22/06/17 SHA[124f870]</strong>
+<strong>👉22/06/19 SHA[124f870]</strong>
 
 개발자도구의 issue에서 samesite관련 오류가 떠서 찾아봄.
 
@@ -98,3 +98,17 @@ iframe에서 발생하는 이슈인듯 하나 해결법을 찾지 못해 보류.
 해당 이슈는 iframe에 해당하는 youtube가 쿠키를 심을 때 적당한 Samesite 속성의 쿠키를 심지 않아
 
 발생하는 것으로 판단되고 클라이언트 사이드인 mapleTube 페이지에서 할 수 있는건 없는 것으로 생각됨.
+
+<strong>👉22/06/20 SHA[8f288e4]</strong>
+
+혹시 proxy를 설정해서 cors문제를 해결하면 Samesite로 인지하고 쿠키를 받을 수 있으니 이슈가 해결될까 해서 package.json에 proxy 설정을 해봄.
+
+Indicate whether to send a cookie in a cross-site request by specifying its SameSite attribute 이슈는 이제 뜨지 않으나,
+
+Indicate whether a cookie is intended to be set in a cross-site context by specifying its SameSite attribute는 여전히 발생.
+
+proxy를 설정하니 렌더링이 느려짐.
+
+https://issuetracker.google.com/issues/229013699 (YouTube embedded player causes CORS errors)
+
+현재 iframe에 youtube영상을 embed하면 해당 오류도 발생하고 있음.
