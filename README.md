@@ -84,3 +84,13 @@ modal-wrapper에 모달창을 닫는 click 이벤트를 추가하여 버튼과 �
 2. 1을 위해 인피니티 스크롤 기능 추가.
 3. sameSite 관련 쿠키이슈 해결 필요.
 4. 리렌더링 최적화
+
+<strong>👉22/06/17 SHA[124f870]</strong>
+
+개발자도구의 issue에서 samesite관련 오류가 떠서 찾아봄.
+
+App.jsx에서 cookie 설정을 집어넣고 iframe src에서 youtube-noncookie 설정하니 이슈 발생 수가 줄어들었으나 여전히 발생.
+
+stream에서 동영상 재생이나 modal에서 동영상이 재생될 때 발생하는 issue로 확인.
+
+iframe에서 발생하는 이슈인듯 하나 해결법을 찾지 못해 보류.
