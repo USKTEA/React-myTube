@@ -1,4 +1,3 @@
-import { click } from "@testing-library/user-event/dist/click";
 import React, { useEffect } from "react";
 
 function Modal(props) {
@@ -47,7 +46,7 @@ function Modal(props) {
     <iframe
       className="video"
       title="video"
-      src={`https://www.youtube.com/embed/fiOAuDbShbI?autoplay=1&controls=0&clip=${clipTime}`}
+      src={`https://www.youtube.com/embed/fiOAuDbShbI?autoplay=1&controls=0&clip=${clipTime}/`}
       frameBorder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen

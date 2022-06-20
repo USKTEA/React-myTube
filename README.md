@@ -94,3 +94,7 @@ App.jsx에서 cookie 설정을 집어넣고 iframe src에서 youtube-noncookie �
 stream에서 동영상 재생이나 modal에서 동영상이 재생될 때 발생하는 issue로 확인.
 
 iframe에서 발생하는 이슈인듯 하나 해결법을 찾지 못해 보류.
+
+해당 이슈는 iframe에 해당하는 youtube가 쿠키를 심을 때 적당한 Samesite 속성의 쿠키를 심지 않아
+
+발생하는 것으로 판단되고 클라이언트 사이드인 mapleTube 페이지에서 할 수 있는건 없는 것으로 생각됨.

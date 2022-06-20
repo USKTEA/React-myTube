@@ -41,14 +41,14 @@ function Stream(props) {
   useEffect(() => {
     const fetchData = async () => {
       const option = {
-        method: "get",
+        method: "GET",
         mode: "cors",
-        credentials: "omit",
       };
       const resposne = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${config.MY_KEY2}`,
+        `/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${config.MY_KEY2}`,
         option
       );
+
       const data = await resposne.json();
 
       setComments(() => data.items);
@@ -64,10 +64,11 @@ function Stream(props) {
           <iframe
             className="video"
             title="video"
-            src={`https://www.youtube-nocookie.com/embed/${videoid}`}
+            src={`https://www.youtube.com/embed/${videoid}`}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            sandbox="allow-scripts allow-same-origin allow-presentation"
           ></iframe>
           <div className="stream-title-view-wrapper">
             <h2 className="stream-video-title">{videotitle}</h2>

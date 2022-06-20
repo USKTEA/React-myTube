@@ -15,15 +15,8 @@ function Video(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const option = {
-        method: "get",
-        mode: "cors",
-        credentials: "omit",
-      };
-
       const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel}&key=${config.MY_KEY2}`,
-        option
+        `/channels?part=snippet&id=${channel}&key=${config.MY_KEY2}`
       );
       const data = await response.json();
 
@@ -35,21 +28,15 @@ function Video(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const option = {
-        method: "get",
-        mode: "cors",
-        credentials: "omit",
-      };
       const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoID}&key=${config.MY_KEY2}`,
-        option
+        `/videos?part=snippet&part=statistics&id=${videoID}&key=${config.MY_KEY2}`
       );
       const data = await response.json();
       setVideoInfo(data.items);
     };
 
     fetchData();
-  }, [channelInfo]);
+  }, [videoID]);
 
   return (
     <div className={props.className}>

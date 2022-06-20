@@ -21,8 +21,9 @@ import "./app.css";
 
 import config from "./config.js";
 
-document.cookie = "same-site-cookie=foo; SameSite=Lax";
-document.cookie = "cross-site-cookie=bar; SameSite=None; Secure";
+document.cookie = "cookie1=soo; SameSite=Lax";
+document.cookie = "cookie2=soo";
+document.cookie = "cookie3=hoo; SameSite=None; Secure";
 
 function App() {
   const prefix = "메이플스토리";
@@ -53,15 +54,13 @@ function App() {
 
   useEffect(() => {
     const option = {
-      method: "get",
+      method: "GET",
       mode: "cors",
-      credentials: "omit",
     };
 
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&type=video&key=${config.MY_KEY2}`,
-      option
-    )
+    const url = `/search?part=snippet&maxResults=16&q=${search}&type=video&key=${config.MY_KEY2}`;
+
+    fetch(url, option)
       .then((response) => response.json())
       .then((data) => setVideoList(data.items));
 
