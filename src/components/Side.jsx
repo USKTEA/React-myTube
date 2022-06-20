@@ -39,5 +39,5 @@ function Side(props) {
     </aside>
   );
 }
-//직업별 검색이벤트 추가해야함
+
 export default Side;

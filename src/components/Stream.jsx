@@ -40,8 +40,14 @@ function Stream(props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      const option = {
+        method: "get",
+        mode: "cors",
+        credentials: "omit",
+      };
       const resposne = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${config.MY_KEY2}`
+        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${config.MY_KEY2}`,
+        option
       );
       const data = await resposne.json();
 
@@ -58,7 +64,7 @@ function Stream(props) {
           <iframe
             className="video"
             title="video"
-            src={`https://www.youtube.com/embed/${videoid}`}
+            src={`https://www.youtube-nocookie.com/embed/${videoid}`}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -84,7 +90,7 @@ function Stream(props) {
               <Button handleClick={props.handleClick}>🔙</Button>
             </div>
           </div>
-          {comments ? <Comments videoComments={comments}></Comments> : null}
+          {comments && <Comments videoComments={comments}></Comments>}
         </div>
         <Side
           handlePlayListClick={props.handlePlayListClick}

@@ -24,7 +24,9 @@ App컴포넌트에 windowWidth state를 추가함.
 
 해당 state를 이용해 start 페이지의 title이 동적으로 길이를 계산하여 렌더링하게 됨.
 
-debounce함수를 이용해 마지막 이벤트리스너가 호출되고 500밀리세컨드 이후에 setWindowWidth 함수를 호출해서 windowWidth state를 변경하는 것으로 API 호출 횟수를 줄임.
+debounce함수를 이용해 마지막 이벤트리스너가 호출되고 500밀리세컨드 이후에 setWindowWidth 함수를 호출해서
+
+windowWidth state를 변경하는 것으로 API 호출 횟수를 줄임.
 
 <strong>👉22/06/16 SHA[24fef19]</strong>
 
@@ -68,10 +70,17 @@ useEffect의 dependency에 videoid을 넣어 videoid가 변경될 때 videoid에
 
 <strong>👉22/06/17 SHA[0facfba]</strong>
 
-첫 페이지 left-side 아이콘에 해당 아이콘을 클릭 시 아이콘이 의미하는 직업영상을 모달창으로 뜨는 기능 구현.
+첫 페이지 left-side의 아이콘을 클릭 시 아이콘이 의미하는 직업영상을 모달창으로 뜨는 기능 구현.
 
 useEffect을 이용해 컴포넌트 랜더링 후 body.style.overflow : hidden을 추가해서 스크롤을 막도록 했고,
 
-modal-wrapper에 모달창을 닫는 click 이벤트를 추가하여 버튼 혹 모달창 영상 이외 부분을 클릭 시
+modal-wrapper에 모달창을 닫는 click 이벤트를 추가하여 버튼과 영상 이외의 부분 클릭 시
 
 모달창이 닫히도록 기능을 구현하였음.
+
+이후 여유 생기면
+
+1. 스크롤 내리면 추가 동영상리스트 fetching해서 리스트 추가 (throttle 사용).
+2. 1을 위해 인피니티 스크롤 기능 추가.
+3. sameSite 관련 쿠키이슈 해결 필요.
+4. 리렌더링 최적화

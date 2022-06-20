@@ -12,7 +12,7 @@ import Modal from "./components/Modal";
 
 //imgs
 import bow from "./img_assets/sideBarIcon-bow.png";
-import magicStric from "./img_assets/sideBarIcon-magicStick.png";
+import magicStick from "./img_assets/sideBarIcon-magicStick.png";
 import pirate from "./img_assets/sideBarIcon-pirate.png";
 import sword from "./img_assets/sideBarIcon-sword.png";
 import theif from "./img_assets/sideBarIcon-theif.png";
@@ -21,15 +21,18 @@ import "./app.css";
 
 import config from "./config.js";
 
+document.cookie = "same-site-cookie=foo; SameSite=Lax";
+document.cookie = "cross-site-cookie=bar; SameSite=None; Secure";
+
 function App() {
-  const prefix = "메이플";
+  const prefix = "메이플스토리";
   const [inputs, setInputs] = useState("");
   const [videoList, setVideoList] = useState([]);
   const [videoInfo, setVideoInfo] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [search, setSearch] = useState(prefix);
   const [clickedIcon, setClickedIcon] = useState(false);
-  const icons = [sword, magicStric, theif, bow, pirate];
+  const icons = [sword, magicStick, theif, bow, pirate];
   const iconsText = ["sword", "magicStick", "theif", "bow", "pirate"];
 
   const handleResize = () => {
@@ -49,8 +52,15 @@ function App() {
   };
 
   useEffect(() => {
+    const option = {
+      method: "get",
+      mode: "cors",
+      credentials: "omit",
+    };
+
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&key=${config.MY_KEY2}`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&type=video&key=${config.MY_KEY2}`,
+      option
     )
       .then((response) => response.json())
       .then((data) => setVideoList(data.items));
@@ -71,7 +81,7 @@ function App() {
   };
 
   const debouncedHandleChange = useCallback(
-    debouncedFunction(handleChange, 200),
+    () => debouncedFunction(handleChange, 200),
     []
   );
 
@@ -107,7 +117,7 @@ function App() {
       ) : null}
       <Header>
         <InputForm handleSubmit={handleSubmit}>
-          <InputBar handleChange={debouncedHandleChange}></InputBar>
+          <InputBar handleChange={debouncedHandleChange()}></InputBar>
           <Button>🔍</Button>
         </InputForm>
       </Header>

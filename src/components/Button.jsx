@@ -2,7 +2,7 @@ import React from "react";
 
 function Button(props) {
   const buttonIcon =
-    props.className === "side-icon" ? props.children.props.alt : null;
+    props.className === "side-icon" && props.children.props.alt;
 
   return (
     <button

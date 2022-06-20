@@ -122,6 +122,10 @@ button:hover {
   position: relative;
 }
 
+.video-box:focus {
+  opacity: 0.8;
+}
+
 .video-box img {
   z-index: -1;
 }

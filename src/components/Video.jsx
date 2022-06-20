@@ -10,14 +10,20 @@ function Video(props) {
   const videoID = props.info.id.videoId;
   const letters = Math.ceil(props.windowWidth / 75);
   const title = props.info.snippet.title.slice(0, letters);
-  const viewCount = videoInfo.length
-    ? (+videoInfo[0].statistics.viewCount / 10000).toFixed(2)
-    : null;
+  const viewCount =
+    videoInfo.length && (+videoInfo[0].statistics.viewCount / 10000).toFixed(2);
 
   useEffect(() => {
     const fetchData = async () => {
+      const option = {
+        method: "get",
+        mode: "cors",
+        credentials: "omit",
+      };
+
       const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel}&key=${config.MY_KEY2}`
+        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel}&key=${config.MY_KEY2}`,
+        option
       );
       const data = await response.json();
 
@@ -29,8 +35,14 @@ function Video(props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      const option = {
+        method: "get",
+        mode: "cors",
+        credentials: "omit",
+      };
       const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoID}&key=${config.MY_KEY2}`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoID}&key=${config.MY_KEY2}`,
+        option
       );
       const data = await response.json();
       setVideoInfo(data.items);
@@ -44,7 +56,7 @@ function Video(props) {
       <div className="video-outer-box">
         <div className="video-box">
           <Button className="video-box" handleClick={props.handleClick}>
-            {videoInfo.length && channelInfo.length ? (
+            {videoInfo.length && channelInfo.length && (
               <img
                 className="thumbnail"
                 src={props.info.snippet.thumbnails.medium.url}
@@ -60,29 +72,27 @@ function Video(props) {
                 }
                 alt="thumbnail"
               />
-            ) : null}
+            )}
           </Button>
-          {props.isPlaying ? (
-            <div className="playing">Now playing...</div>
-          ) : null}
+          {props.isPlaying && <div className="playing">Now playing...</div>}
         </div>
         <div className="video-describtion">
           <div className="channel-thumbnail-container">
-            {channelInfo.length ? (
+            {channelInfo.length && (
               <img
                 className="channel-thumbnail"
                 alt="channel-thumbnail"
                 src={channelInfo[0].snippet.thumbnails.default.url}
               ></img>
-            ) : null}
+            )}
           </div>
-          {channelInfo.length ? (
+          {channelInfo.length && (
             <div>
               <h4 className="video-title">{title + "..."}</h4>
               <p>{channelInfo[0].snippet.title}</p>
               <p>{viewCount + "m views"}</p>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
     </div>
