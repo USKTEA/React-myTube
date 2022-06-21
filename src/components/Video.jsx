@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Button from "./Button.jsx";
 
 function Video(props) {
-  const API_KEY = process.env.REACT_APP_FIRST_SECRET;
   const [channelInfo, setChannelInfo] = useState("");
   const [videoInfo, setVideoInfo] = useState("");
   const channel = props.info.snippet.channelId;
@@ -15,6 +14,7 @@ function Video(props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const response = await fetch(
         `/channels?part=snippet&id=${channel}&key=${API_KEY}`
       );
@@ -28,6 +28,7 @@ function Video(props) {
 
   useEffect(() => {
     const fetchData = async () => {
+      const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const response = await fetch(
         `/videos?part=snippet&part=statistics&id=${videoID}&key=${API_KEY}`
       );

@@ -4,7 +4,6 @@ import Side from "./Side";
 import Comments from "./Comments";
 
 function Stream(props) {
-  const API_KEY = process.env.REACT_APP_FIRST_SECRET;
   const [comments, setComments] = useState("");
   const {
     videoid,
@@ -43,6 +42,7 @@ function Stream(props) {
         method: "GET",
         mode: "cors",
       };
+      const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const resposne = await fetch(
         `/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${API_KEY}`,
         option

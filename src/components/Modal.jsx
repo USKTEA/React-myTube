@@ -40,7 +40,7 @@ function Modal(props) {
       document.body.style.overflow = "unset";
       modal.removeEventListener("click", () => props.handleClick());
     };
-  }, []);
+  }, [props]);
 
   const iconVideo = (
     <iframe

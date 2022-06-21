@@ -113,4 +113,4 @@ proxy를 설정하니 렌더링이 느려짐.
 
 https://issuetracker.google.com/issues/229013699 (YouTube embedded player causes CORS errors)
 
-현재 iframe에 youtube영상을 embed하면 해당 오류도 발생하고 있음
+samesite 문제로 구글을 검색해보니 현재 iframe에 youtube영상을 embed하면 다른 오류도 발생하고 있음.
