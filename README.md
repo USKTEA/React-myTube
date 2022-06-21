@@ -103,7 +103,9 @@ iframe에서 발생하는 이슈인듯 하나 해결법을 찾지 못해 보류.
 
 혹시 proxy를 설정해서 cors문제를 해결하면 Samesite로 인지하고 쿠키를 받을 수 있으니 이슈가 해결될까 해서 package.json에 proxy 설정을 해봄.
 
-Indicate whether to send a cookie in a cross-site request by specifying its SameSite attribute 이슈는 이제 뜨지 않으나,
+Indicate whether to send a cookie in a cross-site request by specifying its SameSite attribute
+
+이슈는 이제 뜨지 않으나,
 
 Indicate whether a cookie is intended to be set in a cross-site context by specifying its SameSite attribute는 여전히 발생.
 
@@ -111,4 +113,4 @@ proxy를 설정하니 렌더링이 느려짐.
 
 https://issuetracker.google.com/issues/229013699 (YouTube embedded player causes CORS errors)
 
-현재 iframe에 youtube영상을 embed하면 해당 오류도 발생하고 있음.
+현재 iframe에 youtube영상을 embed하면 해당 오류도 발생하고 있음

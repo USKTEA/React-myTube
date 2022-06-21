@@ -19,8 +19,6 @@ import theif from "./img_assets/sideBarIcon-theif.png";
 
 import "./app.css";
 
-import config from "./config.js";
-
 document.cookie = "cookie1=soo; SameSite=Lax";
 document.cookie = "cookie2=soo";
 document.cookie = "cookie3=hoo; SameSite=None; Secure";
@@ -58,7 +56,8 @@ function App() {
       mode: "cors",
     };
 
-    const url = `/search?part=snippet&maxResults=16&q=${search}&type=video&key=${config.MY_KEY2}`;
+    const API_KEY = process.env.REACT_APP_FIRST_SECRET;
+    const url = `/search?part=snippet&maxResults=16&q=${search}&type=video&key=${API_KEY}`;
 
     fetch(url, option)
       .then((response) => response.json())

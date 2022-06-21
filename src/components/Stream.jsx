@@ -3,9 +3,8 @@ import Button from "./Button";
 import Side from "./Side";
 import Comments from "./Comments";
 
-import config from "../config";
-
 function Stream(props) {
+  const API_KEY = process.env.REACT_APP_FIRST_SECRET;
   const [comments, setComments] = useState("");
   const {
     videoid,
@@ -45,7 +44,7 @@ function Stream(props) {
         mode: "cors",
       };
       const resposne = await fetch(
-        `/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${config.MY_KEY2}`,
+        `/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${API_KEY}`,
         option
       );
 
