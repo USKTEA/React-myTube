@@ -6,17 +6,17 @@ function Modal(props) {
   switch (props.clickedIcon) {
     case "sword":
       clipTime =
-        "clip=UgkxMi5Qd-P2xrgz3k0EFnUHwhMcM8WYnPrL&amp;clipt=ELifARiYngM";
+        "UgkxMi5Qd-P2xrgz3k0EFnUHwhMcM8WYnPrL&amp;clipt=ELifARiYngM";
       break;
 
     case "magicStick":
       clipTime =
-        "clip=Ugkxlr0FLY3OrrOB9LroqmMcAM3jnJeOG-RI&amp;clipt=END6Bhjzywg";
+        "Ugkxlr0FLY3OrrOB9LroqmMcAM3jnJeOG-RI&amp;clipt=END6Bhjzywg";
       break;
 
     case "theif":
       clipTime =
-        "clip=UgkxFDgtuvwHYhE0unNlAaju2nhNsPiT5wjU&amp;clipt=ELjTFBjZ-BU";
+        "UgkxFDgtuvwHYhE0unNlAaju2nhNsPiT5wjU&amp;clipt=ELjTFBjZ-BU";
       break;
 
     case "bow":

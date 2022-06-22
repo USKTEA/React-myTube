@@ -16,6 +16,7 @@ exports.handler = async (event) => {
     headers["Access-Control-Allow-Origin"] = process.env.HOST;
 
     return {
+      event,
       statusCode: status,
       statusText,
       ok,
