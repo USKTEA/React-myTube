@@ -2,5 +2,5 @@
 functions = "./functions"
 
 [[redirects]]
-from = "/api/*"
+from = "/youtube/v3/*"
 to = "/.netlify/functions/myFunction"

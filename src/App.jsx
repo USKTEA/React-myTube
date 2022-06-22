@@ -52,10 +52,12 @@ function App() {
 
   useEffect(() => {
     //const API_KEY = process.env.REACT_APP_FIRST_SECRET;
-    // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&type=video&key=${API_KEY}`;
-
-    fetch("https://mapletube.netlify.app/.netlify/functions/myFunction/search")
-      .then((response) => response.json())
+    //const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&type=video&key=${API_KEY}`;
+    //
+    fetch(
+      `/search?part=snippet&maxResults=16&q=${search}&type=video`
+    )
+      .then((response) => console.log(response))
       .then((data) => setVideoList(data.items));
 
     window.addEventListener("resize", debouncedFunction(handleResize, 500));
