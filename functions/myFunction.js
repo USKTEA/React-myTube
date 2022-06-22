@@ -4,6 +4,7 @@ const YOUTUBE_SEARCH_ENDPOINT = "https://www.googleapis.com/youtube/v3/search";
 
 exports.handler = async (event) => {
   try {
+    console.log(event);
     const { queryStringParameters } = event;
     const parameters = Object.entries(queryStringParameters)
       .map(([key, value]) => `${key}=${urlencode.encode(value)}`)
@@ -16,7 +17,6 @@ exports.handler = async (event) => {
     headers["Access-Control-Allow-Origin"] = process.env.HOST;
 
     return {
-      event,
       statusCode: status,
       statusText,
       ok,
