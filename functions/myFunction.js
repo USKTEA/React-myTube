@@ -25,7 +25,7 @@ exports.handler = async (event) => {
     };
   } catch (error) {
     return {
-      statusCode: 411,
+      statusCode: 404,
       statusText: error.message,
       ok: false,
       headers: {

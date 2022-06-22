@@ -55,7 +55,7 @@ function App() {
     //const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&type=video&key=${API_KEY}`;
     //
     fetch(
-      `/search?part=snippet&maxResults=16&q=${search}&type=video`
+      `/.netlify/functions/myFunction/search?part=snippet&maxResults=16&q=${search}&type=video`
     )
       .then((response) => console.log(response))
       .then((data) => setVideoList(data.items));
