@@ -1,5 +1,4 @@
-import fetch from "node-fetch";
-
+const fetch = require("node-fetch");
 const urlencode = require("urlencode");
 const YOUTUBE_SEARCH_ENDPOINT = "https://www.googleapis.com/youtube/v3/search";
 
