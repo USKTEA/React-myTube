@@ -16,7 +16,7 @@ function Video(props) {
     const fetchData = async () => {
       const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const response = await fetch(
-        `/channels?part=snippet&id=${channel}&key=${API_KEY}`
+        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${channel}&key=${API_KEY}`
       );
       const data = await response.json();
 
@@ -30,7 +30,7 @@ function Video(props) {
     const fetchData = async () => {
       const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const response = await fetch(
-        `/videos?part=snippet&part=statistics&id=${videoID}&key=${API_KEY}`
+        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoID}&key=${API_KEY}`
       );
       const data = await response.json();
       setVideoInfo(data.items);

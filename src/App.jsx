@@ -51,15 +51,10 @@ function App() {
   };
 
   useEffect(() => {
-    const option = {
-      method: "GET",
-      mode: "cors",
-    };
+    //const API_KEY = process.env.REACT_APP_FIRST_SECRET;
+    // const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${search}&type=video&key=${API_KEY}`;
 
-    const API_KEY = process.env.REACT_APP_FIRST_SECRET;
-    const url = `/search?part=snippet&maxResults=16&q=${search}&type=video&key=${API_KEY}`;
-
-    fetch(url, option)
+    fetch("https://mapletube.netlify.app/.netlify/functions/myFunction/search")
       .then((response) => response.json())
       .then((data) => setVideoList(data.items));
 

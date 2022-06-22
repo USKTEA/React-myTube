@@ -44,7 +44,7 @@ function Stream(props) {
       };
       const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const resposne = await fetch(
-        `/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${API_KEY}`,
+        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${API_KEY}`,
         option
       );
 
