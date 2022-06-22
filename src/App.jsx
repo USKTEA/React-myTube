@@ -57,7 +57,7 @@ function App() {
     fetch(
       `/.netlify/functions/myFunction/search?part=snippet&maxResults=16&q=${search}&type=video`
     )
-      .then((response) => console.log(response))
+      .then((response) => response.json())
       .then((data) => setVideoList(data.items));
 
     window.addEventListener("resize", debouncedFunction(handleResize, 500));
