@@ -114,3 +114,13 @@ proxy를 설정하니 렌더링이 느려짐.
 https://issuetracker.google.com/issues/229013699 (YouTube embedded player causes CORS errors)
 
 samesite 문제로 구글을 검색해보니 현재 iframe에 youtube영상을 embed하면 다른 오류도 발생하고 있음.
+
+<strong>👉22/06/22 SHA[c643e2a]</strong>
+
+전에 사용한 config.js를 이용해 API KEY를 숨겼던 방법은 로컬환경에서만 페이지가 작동하는 것을 알고나서,
+
+방법을 찾던 도중 netlify의 serverless function을 이용하면 감출 수 있다고 하여 적용함.
+
+youtube API 서버와 직접적으로 연결하지 않고 내 키가 환경변수로 설정된 다른 서버랑 연결하고
+
+netlify function을 hit 하는 부분이 헷갈렸으나 deploy에 성공함.
