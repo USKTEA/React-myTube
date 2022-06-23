@@ -38,14 +38,8 @@ function Stream(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const option = {
-        method: "GET",
-        mode: "cors",
-      };
-      const API_KEY = process.env.REACT_APP_FIRST_SECRET;
       const resposne = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=16&videoId=${videoid}&key=${API_KEY}`,
-        option
+        `/.netlify/functions/myFunction/commentThreads?part=snippet&maxResults=16&videoId=${videoid}`
       );
 
       const data = await resposne.json();
